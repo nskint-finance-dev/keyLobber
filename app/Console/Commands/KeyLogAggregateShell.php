@@ -11,14 +11,14 @@ class KeyLogAggregateShell extends Command
      *
      * @var string
      */
-    protected $signature = 'command:name';
+    protected $signature = 'KeyLogAggregateShell';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Command description';
+    protected $description = 'The Shell of Aggregating Keyboard Logs for IT Solution';
 
     /**
      * Create a new command instance.

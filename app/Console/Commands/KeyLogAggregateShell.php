@@ -325,7 +325,7 @@ class KeyLogAggregateShell extends Command
             $frequentWord = '';
             // 単語は最大10個まで
             for ($i = 0; $i < count($words) && $i < 10; $i ++) {
-                $frequentWord .= $indention . $words[$i] . ' (' . $frequencies[$i] . ')' .PHP_EOL;
+                $frequentWord .= $words[$i] . ' (' . $frequencies[$i] . ')' .PHP_EOL;
             }
             // 頻出単語
             $sheet->setCellValue('D' . $dataRow, $frequentWord);

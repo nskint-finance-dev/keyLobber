@@ -283,7 +283,7 @@ class KeyLogAggregateShell extends Command
     private function __aggregateFrequentWord()
     {
         // クエリ実行
-        $lowerLimitLength = config('aggregateFrequentWord.lowerLimitLength', 10);
+        $lowerLimitLength = config('app.aggregateFrequentWord.lowerLimitLength', 10);
         $query = view('sql.aggregateFrequentWord', ['lowerLimitLength' => $lowerLimitLength])->render();
         $id = $this->__executeQuery($query);
 

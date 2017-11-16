@@ -84,9 +84,9 @@ class KeyLogAggregateShell extends Command
     {
 
         // 引数チェック
-        if(!is_int($this->argument('businessDayCount'))){
+        if(!is_numeric($this->argument('businessDayCount'))){
             echo '営業日数は整数で入力してください' . PHP_EOL;
-            exit(1);
+            return;
         }
 
 

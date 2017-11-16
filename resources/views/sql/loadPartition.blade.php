@@ -1,0 +1,1 @@
+MSCK REPAIR TABLE itsolution.key_history_json;

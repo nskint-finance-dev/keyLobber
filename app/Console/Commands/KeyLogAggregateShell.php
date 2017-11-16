@@ -46,7 +46,7 @@ class KeyLogAggregateShell extends Command
      *
      * @var string
      */
-    protected $signature = 'KeyLogAggregateShell';
+    protected $signature = 'KeyLogAggregateShell {businessDayCount}';
 
     /**
      * The console command description.
@@ -82,6 +82,14 @@ class KeyLogAggregateShell extends Command
      */
     public function handle()
     {
+
+        // 引数チェック
+        if(!is_int($this->argument('businessDayCount'))){
+            echo '営業日数は整数で入力してください' . PHP_EOL;
+            exit(1);
+        }
+
+
         Log::info($this->signature . ':start');
 
         // タイムゾーン
@@ -224,6 +232,9 @@ class KeyLogAggregateShell extends Command
             $sheet->setCellValue('A' . $dataRow, $data[0]);
 
             for ($i = 0; $i < count($hours); $i ++) {
+
+                // タイピング数を日割り
+                $cnts[$i] = intval(intval($cnts[$i]) / intval($this->argument('businessDayCount')));
                 // タイピング数(時間帯別)
                 switch ((int) $hours[$i]) {
                     case 9:
